@@ -26,6 +26,7 @@ public class CardController {
     @RequestMapping("/index")
     public String index(Model model) {
     	model.addAttribute("error", error);
+    	model.addAttribute("cards", cardService.getCards());
         return "index";
     }
     

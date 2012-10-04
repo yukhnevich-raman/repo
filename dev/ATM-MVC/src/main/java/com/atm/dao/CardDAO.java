@@ -1,5 +1,7 @@
 package com.atm.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 import com.atm.domain.Card;
 
@@ -7,9 +9,8 @@ import com.atm.domain.Card;
 public interface CardDAO {
 
 	public void addCard(Card card);
-
-	public Card getCard(Integer id);
-
+	public Card getCard(Integer id);	
+	public List<Card> getCards();
 	public void removeCard(Integer id);
 
 }

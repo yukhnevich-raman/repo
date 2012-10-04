@@ -29,4 +29,11 @@ public class CardDAOImpl implements CardDAO{
 		}		
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Card> getCards() {
+		return sessionFactory.getCurrentSession().createQuery("from Card")
+	            .list();
+	}
+
 }

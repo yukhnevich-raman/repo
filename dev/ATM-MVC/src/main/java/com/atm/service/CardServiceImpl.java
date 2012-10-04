@@ -1,5 +1,7 @@
 package com.atm.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,11 @@ public class CardServiceImpl implements CardService{
 	@Transactional
 	public void removeCard(Integer id) {
 		cardDAO.removeCard(id);
+	}
+
+	@Transactional
+	public List<Card> getCards() {
+		return cardDAO.getCards();
 	}
 
 }
