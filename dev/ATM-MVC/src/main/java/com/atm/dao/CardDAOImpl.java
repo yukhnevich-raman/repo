@@ -30,10 +30,13 @@ public class CardDAOImpl implements CardDAO{
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Card> getCards() {
 		return sessionFactory.getCurrentSession().createQuery("from Card")
 	            .list();
+	}
+
+	public void update(Card card) {
+		sessionFactory.getCurrentSession().update(card);	
 	}
 
 }

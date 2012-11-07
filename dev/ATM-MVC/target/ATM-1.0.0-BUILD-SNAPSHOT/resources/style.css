@@ -1,12 +1,19 @@
-.spoiler {
-  display: none;
+.undisplayed {
+	display: none;
 }
-.spoiler1 {
-  display: none;
+.displayed {
+	display: block;
 }
- 
-class="dynamic"
-a.dynamic {
-    border-bottom: 1px dashed #0066CC;
-    text-decoration: none;
+
+.splCont {
+	display:none; padding:3px 5px;
 }
+.header {
+	background-color:  	#D8D8D8;
+}
+.control-table {
+	background-color: white;
+	width: 99.5%;
+}
+
+

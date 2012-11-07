@@ -7,7 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ATM</title>
-<link rel="stylesheet" href="http://localhost:8080/ATM-MVC/resources/style.css" type="text/css"/>
+<link rel="stylesheet" href="http://localhost:8080/ATM/resources/style.css" type="text/css"/>
+<script type="text/javascript" src="http://localhost:8080/ATM/resources/scripts/validator.js"></script> 
 </head>
 <body>
 	<div style="margin-top:200px ">
@@ -23,15 +24,20 @@
 					<tbody>					
 							<tr>
 								<td align="right">
-									<p>Enter card number</p>
+									<p>Choose card number</p>
 								</td>
 								<td align="left">									
 <!-- 										<input type="text" id="number" name="number"/>	-->
-									<select id="number" name="number">
+									<select id="number" name="number" onchange="test(this.form , this.name);check()">
+											<option value="">Chose</option>
 										<c:forEach var="card" items="${cards}">
 											<option value="${card.id}">${card.id}</option>
 										</c:forEach>
-									</select>																 
+									</select>															 
+								</td>
+								<td align="left">
+									<img align="left" id="number_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
+									<img align="left" id="number_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
 								</td>
 							</tr>
 							<tr>
@@ -39,7 +45,11 @@
 									<p>Enter pincode</p>
 								</td>
 								<td align="left">
-									<input type="password" id="pin" name="pin"/>	
+									<input type="password" id="pin" name="pin" onBlur="" onkeyup="test(this.form , this.name);check()"/>	
+								</td>
+								<td align="left">
+									<img align="left" id="pin_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
+									<img align="left" id="pin_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
 								</td>
 							</tr>
 							<tr>
@@ -47,8 +57,9 @@
 									<a href="admin">Admin</a>
 								</td>
 								<td align="left">
-									<input type="submit" value="Enter"/>
+									<input id="enter" type="submit" class="undisplayed" value="Enter"/>
 								</td>
+								<td/>
 							</tr>
 						</tbody>
 					</table>
@@ -57,7 +68,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<img src="http://localhost:8080/ATM-MVC/resources/card-logo.jpg" align="bottom" />
+					<img src="http://localhost:8080/ATM/resources/card-logo.jpg" align="bottom" style="display: block;"/>
 				</td>
 			</tr>
 		</tbody>

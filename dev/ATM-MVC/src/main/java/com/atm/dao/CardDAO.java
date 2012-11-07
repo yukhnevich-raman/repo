@@ -12,5 +12,5 @@ public interface CardDAO {
 	public Card getCard(Integer id);	
 	public List<Card> getCards();
 	public void removeCard(Integer id);
-
+	public void update(Card card);
 }

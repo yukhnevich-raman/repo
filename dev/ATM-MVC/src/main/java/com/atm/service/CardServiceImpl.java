@@ -44,4 +44,8 @@ public class CardServiceImpl implements CardService{
 		return cardDAO.getCards();
 	}
 
+	@Transactional
+	public void update(Card card) {
+		cardDAO.update(card);
+	}
 }

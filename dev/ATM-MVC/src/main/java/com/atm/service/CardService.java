@@ -9,4 +9,5 @@ public interface CardService {
 	public Card getCard(Integer id);
 	public void removeCard(Integer id);
 	public List<Card> getCards();
+	public void update(Card card);
 }

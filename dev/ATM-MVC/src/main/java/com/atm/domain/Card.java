@@ -8,17 +8,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "card")
-public class Card { //implements Serializable{
-
-	//private static final long serialVersionUID = 1L;
+public class Card { 
 	
 	private Integer id;	
-	private Integer amount;
+	private double amount;
 	private Integer pin;
 	private String name;
 	private String surname;
 	private String currency;
 	private String blocked;
+	private Integer attemps;
 	
 	@Id
 	@GeneratedValue
@@ -31,10 +30,10 @@ public class Card { //implements Serializable{
 	}
 	
 	@Column(name ="AMOUNT")
-	public Integer getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(Integer amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	
@@ -88,4 +87,17 @@ public class Card { //implements Serializable{
 				"/nCard currency="+currency+
 				"/nCard blocked="+blocked;
 	}
+	
+	@Column(name ="ATTEMPS")
+	public Integer getAttemps() {
+		return attemps;
+	}
+	public void setAttemps(Integer attemps) {
+		this.attemps = attemps;
+	}
+	 public Invoice createInvoice() {
+		 Invoice invoice = new Invoice();
+		 invoice.setFromCard(this.id);
+		 return invoice;
+	 }
 }
