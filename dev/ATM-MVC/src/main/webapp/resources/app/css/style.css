@@ -1,0 +1,106 @@
+.banner-text {
+    color: rgb(251, 255, 249);
+    font-family: tahoma, arial, verdana, sans-serif;
+    font-size: 18px;
+    line-height: 15px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.modal-dialog {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.dialog-element {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.undisplayed {
+    display: none;
+}
+
+.displayed {
+    display: block;
+}
+
+.splCont {
+    display: none;
+    padding: 3px 5px;
+}
+
+.header {
+    background-color: #D8D8D8;
+}
+
+.control-table {
+    background-color: white;
+    width: 99.5%;
+}
+
+.opperations-300-width {
+    width: 300px;
+}
+
+.invoice-column {
+    width: 116px;
+    align: center;
+    valign: top;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+}
+
+.operations-tabs-panel {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+.container-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qr-table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.qr-table-cell-right {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: auto;
+    text-align: center;
+}
+
+.qr-table-cell-left {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: auto;
+    text-align: center;
+}
+
+.qr-gen {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.logout {
+
+    padding-right: 10px;
+}
+
+.form {
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 40px;
+}

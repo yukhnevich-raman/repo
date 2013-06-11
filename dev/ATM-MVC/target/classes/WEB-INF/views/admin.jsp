@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="http://localhost:8080/ATM/resources/style.css" type="text/css"/>
-<script type="text/javascript" src="http://localhost:8080/ATM/resources/scripts/validator.js"></script>
-<script src="http://localhost:8080/ATM/resources/scripts/jquery.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/ATM/resources/style.css" type="text/css"/>
+<script type="text/javascript" src="/ATM/resources/scripts/validator.js"></script>
+<script src="/ATM/resources/scripts/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 	$('.splLink').click(function(){
@@ -49,8 +49,8 @@
 										<input type="submit" value="Delete"/>																
 									</td>
 									<td align="left">
-										<img align="left" id="id_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="id_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="id_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="id_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 								</tr>
 							</tbody>
@@ -79,8 +79,8 @@
 										<input type="submit" value="Unblock"/>																
 									</td>
 									<td align="left">
-										<img align="left" id="id_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="id_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="id_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="id_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 								</tr>
 							</tbody>
@@ -104,8 +104,8 @@
 										<form:input id="pin" name="pin" path="pin"/>																	
 									</td>
 									<td align="left">
-										<img align="left" id="pin_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="pin_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="pin_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="pin_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 								</tr>
 								<tr>
@@ -116,8 +116,8 @@
 										<form:input id="amount" name="amount" path="amount"/>	
 									</td>
 									<td align="left">
-										<img align="left" id="amount_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="amount_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="amount_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="amount_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 								</tr>
 								<tr>
@@ -128,8 +128,8 @@
 										<form:input id="name" name="name" path="name"/>	
 									</td>
 									<td align="left">
-										<img align="left" id="name_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="name_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="name_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="name_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 								</td>
 								</tr>
 								<tr>
@@ -140,8 +140,8 @@
 										<form:input id="surname" name="name" path="surname"/>	
 									</td>
 									<td align="left">
-										<img align="left" id="surname_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="surname_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="surname_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="surname_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 								</tr>
 								<tr>
@@ -154,8 +154,8 @@
 										</form:select>
 									</td>
 									<td align="left">
-										<img align="left" id="currency_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-										<img align="left" id="currency_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+										<img align="left" id="currency_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+										<img align="left" id="currency_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 									</td>
 									</tr>
 									<tr>
@@ -168,8 +168,8 @@
 											</form:select>
 										</td>
 										<td align="left">
-											<img align="left" id="blocked_ok_img" src="http://localhost:8080/ATM/resources/ok.png" class="undisplayed"/>
-											<img align="left" id="blocked_bad_img" src="http://localhost:8080/ATM/resources/bad.png" class="undisplayed"/>	
+											<img align="left" id="blocked_ok_img" src="/ATM/resources/ok.png" class="undisplayed"/>
+											<img align="left" id="blocked_bad_img" src="/ATM/resources/bad.png" class="undisplayed"/>	
 										</td>
 									</tr>
 									<tr>

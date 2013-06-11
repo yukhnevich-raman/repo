@@ -25,3 +25,41 @@
 	align: center;
 	valign: top;
 }
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 300px;
+}
+
+.operations-tabs-panel {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 70px;
+}
+
+.container-center {
+	margin-left:auto;
+	margin-right:auto;
+}
+.qr-table {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 20px;
+}
+.qr-table-cell-right {
+	margin-top: 20px;
+	margin-left:50px;
+	margin-right:auto;
+	text-align:center;
+}
+.qr-table-cell-left {
+	margin-top: 20px;
+	margin-left:50px;
+	margin-right:auto;
+	text-align:center;
+}
+.qr-gen {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 30px;
+}

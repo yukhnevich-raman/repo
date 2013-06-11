@@ -1,11 +1,15 @@
 .spoiler {
-  display: none;
+    display: none;
 }
+
 .spoiler1 {
-  display: none;
+    display: none;
 }
- 
-class="dynamic"
+
+class
+
+=
+"dynamic"
 a.dynamic {
     border-bottom: 1px dashed #0066CC;
     text-decoration: none;

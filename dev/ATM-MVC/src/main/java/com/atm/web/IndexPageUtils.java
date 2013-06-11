@@ -1,66 +1,106 @@
 package com.atm.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
 import com.atm.domain.Card;
 import com.atm.service.CardService;
+import com.atm.utils.HashPin;
+import org.hibernate.HibernateException;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Component
 public class IndexPageUtils {
 
-	@Autowired
-	private CardService cardService;
-	private Card card;
-	private String error;
-	private Integer cardNumber = 0;
-	
-	public Card getCard() {
-		return card;
-	}
+    @Autowired
+    private CardService cardService;
+    private Card card;
+    private String error;
+    private Integer cardNumber = 0;
+    private JSONObject json;
 
-	public void index(Model model) {
-		model.addAttribute("error", error);
-    	model.addAttribute("cards", cardService.getCards());
-	}
-	
-	public String check(Integer number,Integer pin) {
-		error = "";
-		card = cardService.getCard(number);
-		if(card == null) {
-			error = "<h2><font color='red'>Invalid card number! Please try again</font></h2>";
-			return "redirect:/index";
-		}
-		Integer pincode = card.getPin();
-		if(!pincode.equals(pin)) {
-			card.setAttemps(card.getAttemps()-1);
-			cardService.update(card);
-			if(card.getAttemps()!= 0) {				
-				error = "<h2><font color='red'>Invalid pin code! "+card.getAttemps() +" attempts remained </font></h2>";
-				return "redirect:/index";
-			} else {				
-				error = "<h2><font color='red'>Invalid pin code! Your card was blocked!<br/>Insert another card</font></h2>";
-				card.setBlocked("Y");
-				card.setAttemps(3);
-				cardService.update(card);
-				return "redirect:/index";
-			}
-		} else {
-			return "redirect:/opperations";
-		}
-	}
-	
-	public String checkPin(Integer number,Integer pin) {
-		if (cardNumber == 0) {
-			cardNumber = number;
-		}
-		if(number == cardNumber) {
-			return check(number, pin);
-		} else {
-			card = cardService.getCard(cardNumber);
-			card.setAttemps(3);
-			cardService.update(card);
-			return check(number, pin);
-		}		
-	}
+    private JSONObject check(Integer number, Integer pin, HttpServletRequest request) {
+        error = "";
+        json = new JSONObject();
+        try {
+            card = cardService.getCard(number);
+        } catch (HibernateException e) {
+            error = "Неверный номер карты!";
+            try {
+                json.put("success", "false");
+                json.put("errors", error);
+            } catch (JSONException ex) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return json;
+        }
+        Integer pincode = card.getPin();
+        if (!pincode.equals(pin)) {
+            card.setAttemps(card.getAttemps() - 1);
+            cardService.update(card);
+            if (card.getAttemps() != 0) {
+                try {
+                    json.put("success", "false");
+                    json.put("errors", "В доступе отказано!");
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+                return json;
+            } else {
+                error = "Карточка заблокирована!";
+                card.setBlocked("Y");
+                card.setAttemps(3);
+                cardService.update(card);
+                try {
+                    json.put("success", "false");
+                    json.put("errors", error);
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                return json;
+            }
+        } else {
+
+            try {
+                json.put("success", "true");
+                HttpSession session = request.getSession();
+                session.setAttribute("Card", card);
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return json;
+        }
+    }
+
+    /**
+     * Checking pin code
+     * @param number  - card number
+     * @param pin  - pin code
+     * @param request
+     * @return  - response in JSON format
+     */
+    public JSONObject checkPin(Integer number, Integer pin, HttpServletRequest request) {
+        pin = HashPin.hash(pin,number);
+        System.out.println(pin);
+        if (cardNumber == 0) {
+            cardNumber = number;
+        }
+        if (number == cardNumber) {
+            return check(number, pin, request);
+        } else {
+            card = cardService.getCard(cardNumber);
+            card.setAttemps(3);
+            cardService.update(card);
+            return check(number, pin, request);
+        }
+    }
 }
